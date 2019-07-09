@@ -1,23 +1,18 @@
 $(document).ready(function(){
     
-// Tests
+///// Tests /////
     console.log('Hello World');
 
-    $('button').click(function(){
-        alert ('you did it');
-        console.log('you did it');
-    })
-
-
-//Call Library 
+///// Call Library///// 
 var calls = [];
+var called = [];
 
-//populating the numbers
+//Populating the numbers
 for ( let i = 0; i <=74; i++) {
     calls[i] = i + 1;
 }
 
-//populating the letters
+//Concatenating the letters
 for (let i = 0; i < calls.length;i++){
     if(i < 15){
         calls[i]='B'+calls[i];
@@ -36,12 +31,26 @@ for (let i = 0; i < calls.length;i++){
     }
 }
 console.log(calls);
-  });
+ 
 
-// for (let i=1; i<=5; i++) {
-//     randomPrompt = Math.floor((Math.random() * 15));
-//     callsMade.push(calls[randomPrompt]);
-// }
-// console.log (callsMade)
-// //B
-// for (let i = 1; i)
+////Call Logic/////
+
+//  have a user clicks a start/reset button which would start the game which would have the full array
+
+//  have a call button that would pull a random letter from the array and then remove it and add to a 'called' array
+$('.callButton').click(function() {
+    // pick the random call
+    var rand = Math.floor(Math.random()*calls.length)
+    var nextCall = calls[rand];
+    
+    // remove from array  need to make sure nextCall is 
+    calls.splice(rand,1);
+    // add to called array
+    called.push(nextCall);
+    // show called 
+    console.log(calls);
+    console.log(called);
+});
+// 
+
+}); // end of doc ready
