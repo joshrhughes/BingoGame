@@ -3,7 +3,10 @@ $(document).ready(function(){
 ///// Tests /////
     console.log('Hello World');
 
-///// Call Library///// 
+///// Elements Hidden /////
+$('.main').hide();    
+
+///// Call Library ///// 
 var calls = [];
 var called = [];
 
@@ -32,10 +35,16 @@ for (let i = 0; i < calls.length;i++){
 }
 console.log(calls);
  
+///// Start Game /////
+$('.startButton').click(function() {
+    $(this).hide();
+    $('.main').show();
+    $('.callsRemaining').append(function() {
+        return "<table style='width:100%'><caption>Calls</caption><tr><th>Month</th><th>Savings</th></tr><tr><td>January</td><td>$100</td></tr><tr><td>February</td><td>$50</td></tr></table>"
+    });
+})
 
-////Call Logic/////
-
-//  have a user clicks a start/reset button which would start the game which would have the full array
+///// Call Logic /////
 
 //  have a call button that would pull a random letter from the array and then remove it and add to a 'called' array
 $('.callButton').click(function() {
@@ -50,7 +59,7 @@ $('.callButton').click(function() {
     // show called 
     console.log(calls);
     console.log(called);
-});
-// 
+});// end of call button logic 
+
 
 }); // end of doc ready
